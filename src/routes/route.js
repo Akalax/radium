@@ -3,13 +3,14 @@ const router = express.Router();
 
 
 
-//---------------My Author---------------------
-const myAuthorcon=require("../controller/myAuthorcon");
+//------------------Login Assignment----------------
+const logIn=require("../controller/logInCon");
+//const middleware=require("../Middleware/middleWare");
 
-router.post('/myAuthorCreation',myAuthorcon.myAuthorCreation);
-router.post('/myBookCreation',myAuthorcon.myBookCreation);
-router.get('/getBookData',myAuthorcon.getBookData);
-
+router.post('/getdetail',logIn.getData);
+router.post('/user',logIn.userEntry);
+router.get("/finduser/:userId",logIn.getuserdetail);
+router.put("/changemail/:userId",logIn.changemail);
 
 
 module.exports = router;
