@@ -27,38 +27,27 @@ const getdata=async function(req,res){
 }
 //------------------restricted api access by token----------------
 const getUserDetail=async function(req,res){
-    let token=req.headers['x-auth-token'];
-    let validate=jwt.verify(token,"radium");
-    if(validate){
-        if(validate._id==req.params.userId){
+
+        if(req.validate._id==req.params.userId){
             let user=await userLog.findOne({_id:req.params.userId,isDeleted:false});
             res.send({status:"True",Data:user});
         }
         else{
             res.send({status:"false",msg:"user not found"});
         }
-    }
-    else{
-        res.send({status:"false",msg:"Token is invalid"});
-    }
 }
 //------------protected api change email address------------
 const changemail=async function(req,res){
-    let token=req.headers['x-auth-token'];
-    let validate=jwt.verify(token,"radium");
-    if(validate){
-        if(validate._id==req.params.userId){
+    
+        if(req.validate._id==req.params.userId){
             let user=await userLog.findOne({_id:req.params.userId,isDeleted:false});
-            user.email="sahakah7512@gmail.com";
+            user.email=req.body.email;
+            console.log(req.body.email);
             res.send({status:"True",Data:user});
         }
         else{
             res.send({status:"false",msg:"user not found"});
         }
-    }
-    else{
-        res.send({status:"false",msg:"Token is invalid"});
-    }
 }
 module.exports.userEntry=userEntry;
 module.exports.getData=getdata;

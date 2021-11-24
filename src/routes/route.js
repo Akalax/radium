@@ -5,12 +5,14 @@ const router = express.Router();
 
 //------------------Login Assignment----------------
 const logIn=require("../controller/logInCon");
-//const middleware=require("../Middleware/middleWare");
-
-router.post('/getdetail',logIn.getData);
+const middleware=require("../Middleware/middleWare");
+///----------Regiteration of user----------
 router.post('/user',logIn.userEntry);
-router.get("/finduser/:userId",logIn.getuserdetail);
-router.put("/changemail/:userId",logIn.changemail);
-
+//------------login-------Token creation---------
+router.post('/getdetail',logIn.getData);
+//--------find user Toke------------------
+router.get("/finduser/:userId",middleware.validation,logIn.getuserdetail);
+//---------Change email user----------------------
+router.put("/changemail/:userId",middleware.validation,logIn.changemail);
 
 module.exports = router;
