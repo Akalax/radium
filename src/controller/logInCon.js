@@ -42,7 +42,8 @@ const changemail=async function(req,res){
         if(req.validate._id==req.params.userId){
             let user=await userLog.findOne({_id:req.params.userId,isDeleted:false});
             user.email=req.body.email;
-            console.log(req.body.email);
+            //console.log(req.body.email);
+            user.save();
             res.send({status:"True",Data:user});
         }
         else{
