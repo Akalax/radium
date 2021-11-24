@@ -28,27 +28,27 @@ const getdata=async function(req,res){
 //------------------restricted api access by token----------------
 const getUserDetail=async function(req,res){
 
-        if(req.validate._id==req.params.userId){
+     //   if(req.validate._id==req.params.userId){
             let user=await userLog.findOne({_id:req.params.userId,isDeleted:false});
             res.send({status:"True",Data:user});
-        }
-        else{
-            res.send({status:"false",msg:"user not found"});
-        }
+        // }
+        // else{
+        //     res.send({status:"false",msg:"user not found"});
+        // }
 }
 //------------protected api change email address------------
 const changemail=async function(req,res){
     
-        if(req.validate._id==req.params.userId){
+       // if(req.validate._id==req.params.userId){
             let user=await userLog.findOne({_id:req.params.userId,isDeleted:false});
             user.email=req.body.email;
             //console.log(req.body.email);
             user.save();
             res.send({status:"True",Data:user});
-        }
-        else{
-            res.send({status:"false",msg:"user not found"});
-        }
+       // }
+        // else{
+        //     res.send({status:"false",msg:"user not found"});
+        // }
 }
 module.exports.userEntry=userEntry;
 module.exports.getData=getdata;
