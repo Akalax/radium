@@ -9,7 +9,7 @@ const validation=async function(req,res,next){
         next();
     }
     else{
-        res.status[200].send({status:"false",msg:"Token is invalid"});
+        res.status(200).send({status:"false",msg:"Token is invalid"});
     }
 }
 module.exports.validation=validation;
