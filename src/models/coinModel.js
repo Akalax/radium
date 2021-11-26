@@ -18,4 +18,4 @@ const coinSchema=new mongoose.Schema({
     }
 }, {timestamps: true} )
 
-module.exports=mongoose.model('CoinInfo',coinSchema);
+module.exports=mongoose.model('oinInfo',coinSchema);

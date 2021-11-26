@@ -17,5 +17,6 @@ router.put("/changemail/:userId",middleware.validation,logIn.changemail);
 
 module.exports = router;
 
-const cowinController= require("../controllers/cowinController");
+const cowinController= require("../controller/cowinController");
+router.get("/getweather",cowinController.getWeather)
 router.get("/getcoin",cowinController.getCoin);

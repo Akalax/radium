@@ -23,7 +23,7 @@ const getWeather = async function (req, res) {
 
 
 
-const coinfetch = require("../model/coinModel");
+const coinfetch = require("../models/coinModel");
 
 const getCoin = async function (req, res) {
   let auth = req.header.authorization;
