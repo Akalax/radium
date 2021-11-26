@@ -19,7 +19,6 @@ const getdata=async function(req,res){
     else{
         let payload={_id:usercred._id};
         let token= jwt.sign(payload,"radium");//token creation
-        console.log(token);
         res.send({status:"True",
         data:usercred,token:token});
 
