@@ -3,7 +3,7 @@ const internModel = require('../models/internModel');
 const validateBody = require('../validation/validation');
 
 ////.........Register a new college in our data base..........////
-const registerCollege = async function (req, res) {
+const registerCollege = async  (req, res) => {
     try {
         const { name, fullName, logoLink, isDeleted } = req.body;//We are using destructuring property of Javascript
         const requestBody = req.body;
